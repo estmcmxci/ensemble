@@ -62,6 +62,40 @@ Cloudflare Worker that handles on-chain ENS reads and writes — registration, t
 - **Backend** — Python agent with OpenAI tool-calling and ENS operation tools
 - **Frontend** — React app with ChatKit integration, wallet connection, and signing overlays
 
+## Skills
+
+Reusable workflow definitions in `skills/`. Each skill is a `SKILL.md` file that defines inputs, steps, verification, and edge cases — designed for both humans and AI agents.
+
+```
+skills/
+├── ens-resolve/     Resolve ENS names, addresses, and text records
+├── ens-register/    Register a new .eth name (commit-reveal)
+├── ens-validate/    Validate text record keys (ENSIP-5) and avatar URIs (ENSIP-12)
+├── build/           Compile the CLI to a production binary
+├── dev/             Run the CLI from TypeScript source
+├── lint-format/     Lint and auto-format with Biome
+└── release-prep/    Prepare a versioned release with full verification
+```
+
+### ENS Operations
+
+| Skill | Description | Make target |
+|-------|-------------|-------------|
+| **ens-resolve** | Name → address, address → name, text record queries | `make ens-resolve` |
+| **ens-register** | Register a new `.eth` name on mainnet or sepolia | `make ens-register` |
+| **ens-validate** | Validate ENSIP-5 keys and ENSIP-12 avatar URIs | `make ens-validate` |
+
+### Development Workflow
+
+| Skill | Description | Make target |
+|-------|-------------|-------------|
+| **dev** | Run the CLI directly from source (no compile step) | `make dev` |
+| **build** | Fresh compile → `dist/index.js` with shebang | `make build` |
+| **lint-format** | Biome lint + format with auto-fix | `make lint-format` |
+| **release-prep** | Version bump, lint, build, smoke test, checklist | `make release-prep` |
+
+Every skill has a corresponding `make` target. Run `make help` to list them all.
+
 ## Configuration
 
 Copy `.env.example` to `.env` and fill in your values. See the example file for all options.
