@@ -11,7 +11,7 @@
 
 | Param | Required | Default | Notes |
 |-------|----------|---------|-------|
-| (none) | — | — | builds from `src/index.ts` |
+| (none) | — | — | builds from `cli/index.ts` |
 
 ### Environment
 - Node.js >= 18
@@ -28,7 +28,7 @@
 ## Steps
 
 1. Install dependencies (if needed): `npm install`
-2. Run build: `npx tsup src/index.ts --format esm --dts --outDir dist`
+2. Run build: `npx tsup cli/index.ts --format esm --dts --outDir dist`
 3. Verify `dist/index.js` exists and has shebang line
 4. Verify `node dist/index.js --help` exits 0
 5. Write manifest to `artifacts/build/manifest.txt`

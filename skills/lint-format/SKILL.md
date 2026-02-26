@@ -11,7 +11,7 @@
 
 | Param | Required | Default | Notes |
 |-------|----------|---------|-------|
-| (none) | — | — | operates on `src/` directory |
+| (none) | — | — | operates on `cli/` directory |
 
 ### Environment
 - Node.js >= 18
@@ -29,7 +29,7 @@
 1. Run lint with auto-fix: `npx @biomejs/biome lint --write src 2>&1 | tee artifacts/lint-format/lint-report.txt`
 2. Run format with auto-fix: `npx @biomejs/biome format --write src 2>&1 | tee artifacts/lint-format/format-report.txt`
 3. Verify both exit 0
-4. Check if any files were modified: `git diff --stat src/`
+4. Check if any files were modified: `git diff --stat cli/`
 
 ## Verification
 
@@ -39,7 +39,7 @@ npx @biomejs/biome lint src && npx @biomejs/biome format src && echo "Clean"
 
 ## Edge Cases
 
-- **New files outside src/:** Biome only scans `src/` — scripts in `scripts/` are not covered.
+- **New files outside src/:** Biome only scans `cli/` — scripts in `scripts/` are not covered.
 - **Conflicting edits:** `--write` modifies files in place. If run during active editing, changes may conflict.
 - **biome.json missing:** will use Biome defaults (less strict).
 

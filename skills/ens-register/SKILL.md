@@ -34,18 +34,18 @@
 
 ## Steps
 
-1. Check availability: `npx tsx src/index.ts available $NAME --network $NETWORK`
-2. If available, register: `npx tsx src/index.ts register $NAME --duration $DURATION --network $NETWORK`
+1. Check availability: `npx tsx cli/index.ts available $NAME --network $NETWORK`
+2. If available, register: `npx tsx cli/index.ts register $NAME --duration $DURATION --network $NETWORK`
 3. Wait for commit tx (~60s waiting period between commit and reveal)
 4. Wait for reveal tx confirmation
 5. Capture output to `artifacts/ens-register/register-log.txt`
-6. Verify: `npx tsx src/index.ts resolve $NAME.eth --network $NETWORK` returns owner address
+6. Verify: `npx tsx cli/index.ts resolve $NAME.eth --network $NETWORK` returns owner address
 
 ## Verification
 
 ```bash
-npx tsx src/index.ts available $NAME --network $NETWORK  # should show "not available" after registration
-npx tsx src/index.ts resolve $NAME.eth --network $NETWORK  # should return owner address
+npx tsx cli/index.ts available $NAME --network $NETWORK  # should show "not available" after registration
+npx tsx cli/index.ts resolve $NAME.eth --network $NETWORK  # should return owner address
 ```
 
 ## Edge Cases

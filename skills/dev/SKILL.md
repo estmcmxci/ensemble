@@ -27,13 +27,13 @@
 ## Steps
 
 1. Ensure dependencies installed: `npm install`
-2. Run: `npx tsx src/index.ts $(ARGS)`
+2. Run: `npx tsx cli/index.ts $(ARGS)`
 3. Observe output — no artifact collection (dev is interactive)
 
 ## Verification
 
 ```bash
-npx tsx src/index.ts --help 2>&1 | grep -q "ENS" && echo "OK"
+npx tsx cli/index.ts --help 2>&1 | grep -q "ENS" && echo "OK"
 ```
 
 ## Edge Cases

@@ -1,7 +1,7 @@
 {
-  "name": "@ens/cli",
+  "name": "ensemble",
   "version": "0.1.0",
-  "description": "A CLI for managing ENS names on Ethereum",
+  "description": "ENS name management suite — CLI, agent API, and chat frontend",
   "module": "index.ts",
   "type": "module",
   "bin": {
@@ -11,11 +11,11 @@
     "dist"
   ],
   "scripts": {
-    "build": "npx tsup src/index.ts --format esm --dts --outDir dist",
-    "dev": "npx tsx src/index.ts",
+    "build": "npx tsup cli/index.ts --format esm --dts --outDir dist",
+    "dev": "npx tsx cli/index.ts",
     "start": "node dist/index.js",
-    "lint": "npx @biomejs/biome lint --write src",
-    "format": "npx @biomejs/biome format --write src"
+    "lint": "npx @biomejs/biome lint --write cli",
+    "format": "npx @biomejs/biome format --write cli"
   },
   "devDependencies": {
     "@types/bun": "latest",

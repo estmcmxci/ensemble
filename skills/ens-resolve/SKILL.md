@@ -28,8 +28,8 @@
 
 ## Steps
 
-1. Run resolve: `npx tsx src/index.ts resolve $NAME --network $NETWORK`
-2. If `$TXT` set: `npx tsx src/index.ts resolve $NAME --txt $TXT --network $NETWORK`
+1. Run resolve: `npx tsx cli/index.ts resolve $NAME --network $NETWORK`
+2. If `$TXT` set: `npx tsx cli/index.ts resolve $NAME --txt $TXT --network $NETWORK`
 3. Capture output to `artifacts/ens-resolve/resolve-log.txt`
 4. Verify output contains an address (0x...) or name (.eth)
 
@@ -37,10 +37,10 @@
 
 ```bash
 # Forward resolution
-npx tsx src/index.ts resolve vitalik.eth --network mainnet 2>&1 | grep -q "0x"
+npx tsx cli/index.ts resolve vitalik.eth --network mainnet 2>&1 | grep -q "0x"
 
 # Reverse resolution
-npx tsx src/index.ts resolve 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 --network mainnet 2>&1 | grep -q ".eth"
+npx tsx cli/index.ts resolve 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045 --network mainnet 2>&1 | grep -q ".eth"
 ```
 
 ## Edge Cases
