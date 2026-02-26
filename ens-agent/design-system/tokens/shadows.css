@@ -1,0 +1,49 @@
+/* ═══════════════════════════════════════════════════════════════════
+   PULSE Design System — Shadow & Depth Tokens
+   Card depth system · Layered shadows + glow on hover
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Card Shadows ────────────────────────────────────────────── */
+  --ds-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+
+  --ds-shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(82, 152, 255, 0.15) inset,
+    0 0 20px rgba(82, 152, 255, 0.06);
+
+  /* ── Hero Shadows ────────────────────────────────────────────── */
+  --ds-shadow-hero: 0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(82, 152, 255, 0.12) inset,
+    0 0 30px rgba(82, 152, 255, 0.05);
+
+  --ds-shadow-glow: 0 0 30px rgba(82, 152, 255, 0.15),
+    0 0 60px rgba(160, 153, 255, 0.08);
+
+  /* ── Focus Ring ──────────────────────────────────────────────── */
+  --ds-shadow-focus: 0 0 0 2px var(--ds-color-interactive);
+}
+
+/* ── Depth Utility Classes ───────────────────────────────────────── */
+
+.ds-depth {
+  box-shadow: var(--ds-shadow-card);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.ds-depth:hover {
+  box-shadow: var(--ds-shadow-card-hover);
+  transform: translateY(-1px);
+}
+
+.ds-depth-hero {
+  box-shadow: var(--ds-shadow-hero);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.ds-depth-hero:hover {
+  box-shadow: var(--ds-shadow-hero), var(--ds-shadow-glow);
+  transform: translateY(-2px);
+}

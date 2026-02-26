@@ -1,0 +1,22 @@
+/* ═══════════════════════════════════════════════════════════════════
+   PULSE Design System — Full Entry Point
+   Import this single file to get tokens + all component styles.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Tokens */
+@import './tokens/index.css';
+
+/* Components */
+@import './components/card.css';
+@import './components/button.css';
+@import './components/badge.css';
+@import './components/widget.css';
+@import './components/nav.css';
+@import './components/layout.css';
+
+/* ── Base Reset ──────────────────────────────────────────────────── */
+
+body {
+  background: var(--ds-color-bg-base);
+  color: var(--ds-color-text-secondary);
+}

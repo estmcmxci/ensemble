@@ -1,0 +1,13 @@
+name = "ens-agent-api"
+main = "src/index.ts"
+compatibility_date = "2025-02-14"
+compatibility_flags = ["nodejs_compat"]
+
+[[kv_namespaces]]
+binding = "ENS_SESSIONS"
+id = "1f9c219cb6e04a10a7c02a6fbd9d64c0"
+
+# Set these via `wrangler secret put` or .dev.vars for local dev
+# ETH_RPC_URL_SEPOLIA
+# ETH_RPC_URL_MAINNET
+# API_KEY

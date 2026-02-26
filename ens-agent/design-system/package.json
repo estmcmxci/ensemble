@@ -1,0 +1,30 @@
+{
+  "name": "@pulse-ds/design-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "PULSE Design System — Elevated dark theme tokens, component CSS, and ChatKit theme",
+  "main": "chatkit-theme.ts",
+  "types": "chatkit-theme.ts",
+  "exports": {
+    ".": "./chatkit-theme.ts",
+    "./theme": "./theme.css",
+    "./globals": "./globals.css",
+    "./tokens": "./tokens/index.css",
+    "./tokens/*": "./tokens/*.css",
+    "./components/*": "./components/*.css",
+    "./chatkit-theme": "./chatkit-theme.ts"
+  },
+  "files": [
+    "tokens/",
+    "components/",
+    "theme.css",
+    "globals.css",
+    "chatkit-theme.ts"
+  ],
+  "keywords": [
+    "design-system",
+    "dark-theme",
+    "css-tokens",
+    "chatkit"
+  ]
+}

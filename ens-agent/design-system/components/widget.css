@@ -1,0 +1,80 @@
+/* ═══════════════════════════════════════════════════════════════════
+   PULSE Design System — Widget Component
+   Dashboard widget container with header/content/footer zones
+   ═══════════════════════════════════════════════════════════════════ */
+
+.ds-widget {
+  background: var(--ds-color-bg-raised);
+  border: 1px solid var(--ds-color-border-default);
+  border-radius: var(--ds-radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--ds-shadow-card);
+  contain: layout style;
+}
+
+/* ── Header ──────────────────────────────────────────────────────── */
+
+.ds-widget__header {
+  padding: var(--ds-space-3) var(--ds-space-4);
+  border-bottom: 1px solid var(--ds-color-border-default);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Subtle top-accent line on widget header */
+.ds-widget__header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: var(--ds-space-4);
+  right: var(--ds-space-4);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(82, 152, 255, 0.12),
+    transparent
+  );
+}
+
+.ds-widget__title {
+  font-size: var(--ds-text-xs);
+  font-weight: var(--ds-font-regular);
+  letter-spacing: var(--ds-tracking-wide);
+  text-transform: uppercase;
+  color: var(--ds-color-text-tertiary);
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+}
+
+/* ── Content ─────────────────────────────────────────────────────── */
+
+.ds-widget__content { flex: 1; }
+.ds-widget__content--none { padding: 0; }
+.ds-widget__content--sm { padding: var(--ds-space-2); }
+.ds-widget__content--md { padding: var(--ds-space-3); }
+.ds-widget__content--lg { padding: var(--ds-space-4); }
+
+/* ── Footer ──────────────────────────────────────────────────────── */
+
+.ds-widget__footer {
+  padding: var(--ds-space-2) var(--ds-space-4);
+  border-top: 1px solid var(--ds-color-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── Grid Spanning ───────────────────────────────────────────────── */
+
+.ds-widget--span-1 { grid-column: span 1; }
+.ds-widget--span-2 { grid-column: span 2; }
+.ds-widget--span-3 { grid-column: span 3; }
+.ds-widget--span-4 { grid-column: span 4; }
+.ds-widget--row-1 { grid-row: span 1; }
+.ds-widget--row-2 { grid-row: span 2; }
+.ds-widget--row-3 { grid-row: span 3; }

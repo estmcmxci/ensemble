@@ -1,0 +1,162 @@
+/* ═══════════════════════════════════════════════════════════════════
+   PULSE Design System — Layout Utilities
+   Grid system · Container · Atmospheric background
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Page Container ──────────────────────────────────────────────── */
+
+.ds-container {
+  max-width: var(--ds-container-max);
+  margin: 0 auto;
+  width: 100%;
+  padding: var(--ds-container-padding-y) var(--ds-container-padding-x);
+}
+
+/* ── Widget Grid ─────────────────────────────────────────────────── */
+
+.ds-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--ds-grid-columns), 1fr);
+  gap: var(--ds-grid-gap);
+}
+
+@media (max-width: 1280px) {
+  .ds-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .ds-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .ds-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Section Spacing ─────────────────────────────────────────────── */
+
+.ds-section {
+  margin-bottom: var(--ds-space-6);
+}
+
+/* ── Divider ─────────────────────────────────────────────────────── */
+
+.ds-divider {
+  height: 1px;
+  background: var(--ds-color-border-subtle);
+  border: none;
+}
+
+.ds-divider--accent {
+  background: linear-gradient(
+    90deg,
+    rgba(82, 152, 255, 0.3),
+    rgba(160, 153, 255, 0.15),
+    transparent
+  );
+}
+
+/* ── Atmospheric Background ──────────────────────────────────────── */
+
+.ds-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+
+  /* Static gradient mesh — diffused color anchors */
+  background: radial-gradient(
+      ellipse 90% 60% at 85% -10%,
+      rgba(82, 152, 255, 0.18) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 0% 90%,
+      rgba(160, 153, 255, 0.13) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 40% 35% at 50% 50%,
+      rgba(82, 152, 255, 0.04) 0%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 50% 50% at 30% 10%,
+      rgba(100, 130, 255, 0.06) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 35% 40% at 90% 70%,
+      rgba(140, 120, 255, 0.05) 0%,
+      transparent 50%
+    );
+}
+
+/* Drifting nebula layer */
+.ds-atmosphere::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(
+      ellipse 50% 40% at 60% 30%,
+      rgba(82, 152, 255, 0.1) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 40% 50% at 30% 70%,
+      rgba(160, 153, 255, 0.08) 0%,
+      transparent 55%
+    );
+  animation: ds-drift 45s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* Grain + vignette + dot grid */
+.ds-atmosphere::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      ellipse 75% 70% at 50% 50%,
+      transparent 40%,
+      rgba(6, 6, 10, 0.6) 100%
+    ),
+    radial-gradient(
+      circle 0.5px at center,
+      rgba(255, 255, 255, 0.03) 0%,
+      transparent 100%
+    ),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 100% 100%, 24px 24px, 512px 512px;
+  background-repeat: no-repeat, repeat, repeat;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────── */
+
+.ds-scrollbar ::-webkit-scrollbar,
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.ds-scrollbar ::-webkit-scrollbar-track,
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ds-scrollbar ::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb {
+  background: var(--ds-color-border-default);
+  border-radius: 3px;
+}
+
+.ds-scrollbar ::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ds-color-border-strong);
+}

@@ -1,0 +1,7 @@
+/* ═══════════════════════════════════════════════════════════════════
+   PULSE Design System — Theme (tokens only)
+   Import this file when you only need the design tokens
+   without component classes or utility styles.
+   ═══════════════════════════════════════════════════════════════════ */
+
+@import './tokens/index.css';

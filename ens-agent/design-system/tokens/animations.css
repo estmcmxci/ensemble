@@ -1,0 +1,154 @@
+/* ═══════════════════════════════════════════════════════════════════
+   PULSE Design System — Animation & Motion Tokens
+   Cinematic entrances · Subtle interactive feedback
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Transition Durations ────────────────────────────────────── */
+  --ds-transition-fast: 0.1s ease;
+  --ds-transition-default: 0.15s ease;
+  --ds-transition-slow: 0.3s ease;
+
+  /* ── Easing Curves ───────────────────────────────────────────── */
+  --ds-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ds-ease-in-out: ease-in-out;
+}
+
+/* ── Keyframes ───────────────────────────────────────────────────── */
+
+/* Fade-up entrance — page load choreography */
+@keyframes ds-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Skeleton loading shimmer */
+@keyframes ds-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Atmospheric drift — background nebula */
+@keyframes ds-drift {
+  0% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  33% {
+    transform: translate(3%, -2%) scale(1.02);
+  }
+  66% {
+    transform: translate(-2%, 3%) scale(0.98);
+  }
+  100% {
+    transform: translate(1%, -1%) scale(1.01);
+  }
+}
+
+/* Pulse dot — live indicator */
+@keyframes ds-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Glow pulse — CTA emphasis */
+@keyframes ds-glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(82, 152, 255, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(82, 152, 255, 0.3),
+      0 0 60px rgba(160, 153, 255, 0.12);
+  }
+}
+
+/* ── Entrance Utility Classes ────────────────────────────────────── */
+
+.ds-animate-in {
+  animation: ds-fade-up 0.6s var(--ds-ease-out-expo) both;
+}
+
+/* Stagger delays (100ms increments) */
+.ds-stagger-1 { animation-delay: 0ms; }
+.ds-stagger-2 { animation-delay: 100ms; }
+.ds-stagger-3 { animation-delay: 200ms; }
+.ds-stagger-4 { animation-delay: 300ms; }
+.ds-stagger-5 { animation-delay: 400ms; }
+.ds-stagger-6 { animation-delay: 500ms; }
+.ds-stagger-7 { animation-delay: 600ms; }
+.ds-stagger-8 { animation-delay: 700ms; }
+
+/* ── Loading State ───────────────────────────────────────────────── */
+
+.ds-skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(26, 26, 36, 0.8) 0%,
+    rgba(82, 152, 255, 0.12) 35%,
+    rgba(160, 153, 255, 0.14) 50%,
+    rgba(82, 152, 255, 0.12) 65%,
+    rgba(26, 26, 36, 0.8) 100%
+  );
+  background-size: 300% 100%;
+  animation: ds-shimmer 1.8s ease-in-out infinite;
+  border-radius: var(--ds-radius-md);
+}
+
+/* ── Interactive Feedback ────────────────────────────────────────── */
+
+.ds-interactive {
+  transition: background var(--ds-transition-fast),
+    border-color var(--ds-transition-fast),
+    box-shadow var(--ds-transition-default);
+}
+
+.ds-interactive:hover {
+  background: var(--ds-color-bg-elevated);
+  border-color: var(--ds-color-border-default);
+}
+
+.ds-focusable:focus {
+  outline: none;
+}
+
+.ds-focusable:focus-visible {
+  outline: none;
+  box-shadow: var(--ds-shadow-focus);
+}
+
+/* ── Reduced Motion ──────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-animate-in,
+  .ds-skeleton {
+    animation: none;
+  }
+
+  .ds-depth,
+  .ds-depth-hero,
+  .ds-interactive {
+    transition: none;
+  }
+
+  .ds-depth:hover,
+  .ds-depth-hero:hover {
+    transform: none;
+  }
+}

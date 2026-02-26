@@ -1,0 +1,137 @@
+/* ═══════════════════════════════════════════════════════════════════
+   PULSE Design System — Card Component
+   ═══════════════════════════════════════════════════════════════════ */
+
+.ds-card {
+  background: var(--ds-color-bg-raised);
+  border: 1px solid var(--ds-color-border-subtle);
+  border-radius: var(--ds-radius-lg);
+  box-shadow: var(--ds-shadow-card);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.ds-card:hover {
+  box-shadow: var(--ds-shadow-card-hover);
+  transform: translateY(-1px);
+}
+
+/* ── Variants ────────────────────────────────────────────────────── */
+
+.ds-card--elevated {
+  background: var(--ds-color-bg-elevated);
+  border-color: var(--ds-color-border-default);
+}
+
+.ds-card--interactive {
+  cursor: pointer;
+}
+
+.ds-card--interactive:hover {
+  background: var(--ds-color-bg-elevated);
+  border-color: var(--ds-color-border-default);
+}
+
+.ds-card--hero {
+  position: relative;
+  border-color: transparent;
+  background: linear-gradient(135deg, #0e0e18, #0c0c14);
+  box-shadow: var(--ds-shadow-hero);
+}
+
+.ds-card--hero:hover {
+  box-shadow: var(--ds-shadow-hero), var(--ds-shadow-glow);
+  transform: translateY(-2px);
+}
+
+/* Hero gradient border via mask */
+.ds-card--hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(82, 152, 255, 0.35),
+    rgba(160, 153, 255, 0.18),
+    rgba(82, 152, 255, 0.08)
+  );
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+  transition: background 0.4s ease;
+}
+
+.ds-card--hero:hover::before {
+  background: linear-gradient(
+    135deg,
+    rgba(82, 152, 255, 0.5),
+    rgba(160, 153, 255, 0.3),
+    rgba(82, 152, 255, 0.15)
+  );
+}
+
+/* Hero top inner glow */
+.ds-card--hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(82, 152, 255, 0.3),
+    rgba(160, 153, 255, 0.2),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.ds-card--empty {
+  background: transparent;
+  border-style: dashed;
+  border-color: var(--ds-color-border-subtle);
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Padding ─────────────────────────────────────────────────────── */
+
+.ds-card--pad-none { padding: 0; }
+.ds-card--pad-sm { padding: var(--ds-space-3); }
+.ds-card--pad-md { padding: var(--ds-space-4); }
+.ds-card--pad-lg { padding: var(--ds-space-6); }
+
+/* ── Sub-elements ────────────────────────────────────────────────── */
+
+.ds-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--ds-space-4);
+}
+
+.ds-card__header--bordered {
+  padding-bottom: var(--ds-space-3);
+  border-bottom: 1px solid var(--ds-color-border-subtle);
+}
+
+.ds-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--ds-space-4);
+}
+
+.ds-card__footer--bordered {
+  padding-top: var(--ds-space-3);
+  border-top: 1px solid var(--ds-color-border-subtle);
+}

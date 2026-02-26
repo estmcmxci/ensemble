@@ -1,0 +1,54 @@
+/* ═══════════════════════════════════════════════════════════════════
+   PULSE Design System — Color Tokens
+   Elevated Dark Theme · Deep-space observatory palette
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Background Layers (darkest → lightest) ──────────────────── */
+  --ds-color-bg-base: #06060a;
+  --ds-color-bg-raised: #0c0c12;
+  --ds-color-bg-elevated: #12121a;
+  --ds-color-bg-overlay: #1a1a24;
+
+  /* ── Text Hierarchy ──────────────────────────────────────────── */
+  --ds-color-text-primary: #fafafa;
+  --ds-color-text-secondary: #a1a1aa;
+  --ds-color-text-tertiary: #71717a;
+  --ds-color-text-muted: #52525b;
+
+  /* ── Borders ─────────────────────────────────────────────────── */
+  --ds-color-border-subtle: #1a1a24;
+  --ds-color-border-default: #252530;
+  --ds-color-border-strong: #353545;
+
+  /* ── Brand Accent ────────────────────────────────────────────── */
+  --ds-color-accent: #5298ff;
+  --ds-color-accent-secondary: #a099ff;
+  --ds-color-accent-gradient-start: #5298ff;
+  --ds-color-accent-gradient-end: #a099ff;
+
+  /* ── Warm Accent ─────────────────────────────────────────────── */
+  --ds-color-warm: #e8a946;
+  --ds-color-warm-muted: #92691e;
+
+  /* ── Semantic: Success / Positive ────────────────────────────── */
+  --ds-color-success: #22c55e;
+  --ds-color-success-muted: #166534;
+
+  /* ── Semantic: Warning ───────────────────────────────────────── */
+  --ds-color-warning: #f59e0b;
+  --ds-color-warning-muted: #92400e;
+
+  /* ── Semantic: Danger / Negative ─────────────────────────────── */
+  --ds-color-danger: #ef4444;
+  --ds-color-danger-muted: #991b1b;
+
+  /* ── Semantic: Info ──────────────────────────────────────────── */
+  --ds-color-info: #3b82f6;
+  --ds-color-info-muted: #1e40af;
+
+  /* ── Interactive States ──────────────────────────────────────── */
+  --ds-color-interactive: #5298ff;
+  --ds-color-interactive-hover: #6ba5ff;
+  --ds-color-interactive-active: #4080dd;
+}

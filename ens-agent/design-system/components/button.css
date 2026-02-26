@@ -1,0 +1,108 @@
+/* ═══════════════════════════════════════════════════════════════════
+   PULSE Design System — Button Component
+   ═══════════════════════════════════════════════════════════════════ */
+
+.ds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-2);
+  border-radius: var(--ds-radius-lg);
+  font-size: var(--ds-text-base);
+  font-weight: var(--ds-font-medium);
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background var(--ds-transition-fast),
+    border-color var(--ds-transition-fast),
+    box-shadow var(--ds-transition-default);
+}
+
+.ds-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(82, 152, 255, 0.5);
+}
+
+.ds-btn:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ── Variants ────────────────────────────────────────────────────── */
+
+.ds-btn--primary {
+  background: var(--ds-color-accent);
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.ds-btn--primary:hover {
+  background: var(--ds-color-interactive-hover);
+}
+
+.ds-btn--secondary {
+  background: var(--ds-color-bg-overlay);
+  color: var(--ds-color-text-primary);
+  border: 1px solid var(--ds-color-border-default);
+}
+
+.ds-btn--secondary:hover {
+  background: var(--ds-color-bg-elevated);
+}
+
+.ds-btn--outline {
+  background: transparent;
+  color: var(--ds-color-text-secondary);
+  border: 1px solid var(--ds-color-border-default);
+}
+
+.ds-btn--outline:hover {
+  background: var(--ds-color-bg-overlay);
+  border-color: var(--ds-color-border-strong);
+}
+
+.ds-btn--ghost {
+  background: transparent;
+  color: var(--ds-color-text-secondary);
+  border: 1px solid transparent;
+}
+
+.ds-btn--ghost:hover {
+  background: var(--ds-color-bg-overlay);
+}
+
+.ds-btn--danger {
+  background: var(--ds-color-danger);
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.ds-btn--danger:hover {
+  background: #dc2626;
+}
+
+/* ── Sizes ───────────────────────────────────────────────────────── */
+
+.ds-btn--sm {
+  height: 32px;
+  padding: 0 var(--ds-space-3);
+  font-size: var(--ds-text-sm);
+}
+
+.ds-btn--md {
+  height: 40px;
+  padding: 0 var(--ds-space-4);
+  font-size: var(--ds-text-base);
+}
+
+.ds-btn--lg {
+  height: 48px;
+  padding: 0 var(--ds-space-6);
+  font-size: var(--ds-text-md);
+}
+
+.ds-btn--icon {
+  height: 40px;
+  width: 40px;
+  padding: 0;
+}

@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+bun.lockb
+
+# Build output
+dist/
+out/
+cache/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Coverage
+coverage/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Testing
+.playwright-mcp/
+
+# Editor state
+.claude/
+
+# Artifacts (skill outputs — review then discard)
+artifacts/*
+!artifacts/.gitkeep
