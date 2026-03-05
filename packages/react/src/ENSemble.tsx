@@ -5,10 +5,12 @@ import { useChatBridge, ChatBridgeContext, type ChatBridgeMethods } from './hook
 import { ENSProfileCard } from './components/ENSProfileCard';
 import { ENSembleChat } from './ENSembleChat';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import type { ENSembleConfig, ENSembleTheme } from './types';
+import type { ENSembleConfig, ENSembleTheme, ENSProfile } from './types';
 
 interface ENSembleContentProps {
   className?: string;
+  name?: string;
+  profile?: ENSProfile;
   connectButton?: ReactNode;
   chainButton?: ReactNode;
   onTransactionSuccess?: () => void;
@@ -20,6 +22,8 @@ interface ENSembleContentProps {
 
 function ENSembleContent({
   className,
+  name,
+  profile: externalProfile,
   connectButton,
   chainButton,
   onTransactionSuccess,
@@ -28,7 +32,7 @@ function ENSembleContent({
   chatTheme,
   children,
 }: ENSembleContentProps) {
-  const { profile, nameList, isLoading, isConnected, refresh, selectName } = useENSProfile();
+  const { profile, nameList, isLoading, isConnected, refresh, selectName } = useENSProfile(name, externalProfile);
   const { sendPrompt } = useChatBridge();
 
   return (
@@ -61,6 +65,10 @@ function ENSembleContent({
 
 export interface ENSembleProps extends ENSembleConfig {
   className?: string;
+  /** ENS name to auto-load on mount (e.g. "vitalik.eth") */
+  name?: string;
+  /** Pre-resolved ENS profile — skips the initial fetch when provided */
+  profile?: ENSProfile;
   theme?: ENSembleTheme;
   connectButton?: ReactNode;
   chainButton?: ReactNode;
@@ -79,6 +87,8 @@ export function ENSemble({
   apiKey,
   features,
   className,
+  name,
+  profile,
   theme,
   connectButton,
   chainButton,
@@ -101,6 +111,8 @@ export function ENSemble({
           <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0, ...style }}>
             <ENSembleContent
               className={className}
+              name={name}
+              profile={profile}
               connectButton={connectButton}
               chainButton={chainButton}
               onTransactionSuccess={onTransactionSuccess}

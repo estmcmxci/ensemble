@@ -16,10 +16,13 @@ export interface UseENSProfileReturn {
   network: string;
 }
 
-export function useENSProfile(): UseENSProfileReturn {
+export function useENSProfile(
+  initialName?: string,
+  externalProfile?: ENSProfile,
+): UseENSProfileReturn {
   const { client } = useENSembleContext();
   const { address, chainId, isConnected } = useAccount();
-  const [profile, setProfile] = useState<ENSProfile | null>(null);
+  const [profile, setProfile] = useState<ENSProfile | null>(externalProfile ?? null);
   const [nameList, setNameList] = useState<ENSNameList | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -57,14 +60,22 @@ export function useENSProfile(): UseENSProfileReturn {
     }
   }, [network, client]);
 
+  // When an initialName is provided, fetch that profile on mount
   useEffect(() => {
+    if (initialName) {
+      selectName(initialName);
+      return;
+    }
+    // If an externalProfile was provided, skip auto-fetch
+    if (externalProfile) return;
+
     if (isConnected && address) {
       refresh();
     } else {
       setProfile(null);
       setNameList(null);
     }
-  }, [isConnected, address, refresh]);
+  }, [isConnected, address, refresh, initialName, externalProfile, selectName]);
 
   return { profile, nameList, isLoading, error, refresh, selectName, isConnected, address, network };
 }
