@@ -1,0 +1,69 @@
+{
+  "name": "@ensemble-ens/react",
+  "version": "0.1.0",
+  "description": "Drop-in React components and hooks for ENS operations",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup && cp src/styles/ensemble.css dist/styles.css",
+    "dev": "tsup --watch"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "wagmi": "^2.0.0",
+    "viem": "^2.0.0",
+    "@tanstack/react-query": "^5.0.0",
+    "@rainbow-me/rainbowkit": "^2.0.0",
+    "@openai/chatkit-react": "^1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@rainbow-me/rainbowkit": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "wagmi": "^2.14.0",
+    "viem": "^2.23.0",
+    "@tanstack/react-query": "^5.64.0",
+    "@rainbow-me/rainbowkit": "^2.2.0",
+    "@openai/chatkit-react": "^1.5.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.0",
+    "tsup": "^8.0.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nickshanks347/ensemble",
+    "directory": "packages/react"
+  },
+  "keywords": [
+    "ens",
+    "ethereum",
+    "react",
+    "web3",
+    "wagmi"
+  ]
+}

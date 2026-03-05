@@ -4,6 +4,10 @@
   "description": "ENS name management suite — CLI, agent API, and chat frontend",
   "module": "index.ts",
   "type": "module",
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
   "bin": {
     "ens": "./dist/index.js"
   },
